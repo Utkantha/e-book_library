@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-BOOK LIBRARY | NovaReads Downloads</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="downloadPage">
+  <nav class="topbar">
+    <div class="brand">
+      <span class="brand__dot"></span>
+      <span class="brand__name">NovaReads</span>
+    </div>
+    <div class="topbar__actions">
+      <a class="link" href="index.html">Home</a>
+      <a class="link" href="#library">Library</a>
+      <button class="btn btn--ghost" id="loginBtn">Log in</button>
+      <button class="btn btn--primary" id="signupBtn">Sign up</button>
+    </div>
+  </nav>
+
+  <header class="hero hero--download">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="badge">Members unlock downloads</p>
+      <h1>E-BOOK LIBRARY</h1>
+      <p class="subtext">Sign up or log in with email & password to download any title instantly.</p>
+      <div class="hero__actions">
+        <button class="btn btn--primary" id="ctaDownloadSignup">Sign up to download</button>
+        <button class="btn btn--ghost" id="ctaDownloadLogin">Log in</button>
+      </div>
+      <form class="search" id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search title, author, genre..." aria-label="Search books">
+        <button type="submit" class="btn btn--secondary">Search</button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <section id="library" class="section">
+      <div class="section__header">
+        <h2>All downloads</h2>
+        <p>Pick a book and log in to get the PDF.</p>
+      </div>
+      <div class="filters">
+        <select id="genreFilter">
+          <option value="all">All genres</option>
+          <option value="finance">Finance</option>
+          <option value="productivity">Productivity</option>
+          <option value="fiction">Fiction</option>
+          <option value="self-help">Self help</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="history">History</option>
+          <option value="biography">Biography</option>
+        </select>
+        <button class="btn btn--ghost" id="resetFilters">Reset</button>
+      </div>
+      <div class="grid" id="libraryGrid">
+        <!-- populated by JS -->
+      </div>
+    </section>
+  </main>
+
+  <div class="auth" id="authModal" aria-hidden="true">
+    <div class="auth__backdrop"></div>
+    <div class="auth__panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth__close" id="closeAuth" aria-label="Close">×</button>
+      <div class="auth__tabs">
+        <button class="auth__tab auth__tab--active" data-mode="login">Log in</button>
+        <button class="auth__tab" data-mode="signup">Sign up</button>
+      </div>
+      <form id="authForm" class="auth__form">
+        <h3 id="authTitle">Log in to NovaReads</h3>
+        <label>Email
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <label>Password
+          <input type="password" name="password" placeholder="••••••••" required>
+        </label>
+        <button type="submit" class="btn btn--primary auth__submit">Continue</button>
+        <p class="auth__hint" id="authHint">No account yet? Sign up for free.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <h4>NovaReads</h4>
+      <p>Free, colorful, and fast eBook downloads.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <ul>
+        <li><a href="#library">Rich Dad Poor Dad</a></li>
+        <li><a href="#library">Atomic Habits</a></li>
+        <li><a href="#library">Dune</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@openreads.example">Email</a></li>
+        <li><a href="#">Telegram</a></li>
+        <li><a href="#">Discord</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('ctaDownloadSignup')?.addEventListener('click', () => toggleAuth(true, 'signup'));
+    document.getElementById('ctaDownloadLogin')?.addEventListener('click', () => toggleAuth(true, 'login'));
+  </script>
+</body>
+</html>
+

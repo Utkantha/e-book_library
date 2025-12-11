@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaReads | E-Book Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="topbar">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span class="brand__name">NovaReads</span>
+      </div>
+      <div class="topbar__actions">
+        <a class="link" href="#featured">Featured</a>
+        <a class="link" href="#library">Library</a>
+        <a class="link" href="download.html">Downloads</a>
+        <button class="btn btn--ghost" id="loginBtn">Log in</button>
+        <button class="btn btn--primary" id="signupBtn">Sign up</button>
+      </div>
+    </nav>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="badge">NovaReads • 100% free downloads</p>
+      <h1>E-BOOK LIBRARY</h1>
+      <p class="subtext">Colorful stories, powerful ideas. Sign up or log in to grab every title.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#featured">See featured</a>
+        <a class="btn btn--ghost" href="#library">Browse library</a>
+      </div>
+      <form class="search" id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search title, author, genre..." aria-label="Search books">
+        <button type="submit" class="btn btn--secondary">Search</button>
+      </form>
+    </div>
+    <div class="hero__stats">
+      <div>
+        <span class="stat__number" id="statCount">0</span>
+        <span class="stat__label">Books</span>
+      </div>
+      <div>
+        <span class="stat__number">1M+</span>
+        <span class="stat__label">Community downloads</span>
+      </div>
+      <div>
+        <span class="stat__number">4.9★</span>
+        <span class="stat__label">Reader satisfaction</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="featured" class="section">
+      <div class="section__header">
+        <h2>Featured picks</h2>
+        <p>Curated reads to get you started.</p>
+      </div>
+      <div class="grid" id="featuredGrid">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+    <section id="library" class="section">
+      <div class="section__header">
+        <h2>Full library</h2>
+        <p>Fresh drops every week. Filter, preview, download.</p>
+      </div>
+      <div class="filters">
+        <select id="genreFilter">
+          <option value="all">All genres</option>
+          <option value="finance">Finance</option>
+          <option value="productivity">Productivity</option>
+          <option value="fiction">Fiction</option>
+          <option value="self-help">Self help</option>
+          <option value="sci-fi">Sci-Fi</option>
+          <option value="history">History</option>
+          <option value="biography">Biography</option>
+        </select>
+        <button class="btn btn--ghost" id="resetFilters">Reset</button>
+      </div>
+      <div class="grid" id="libraryGrid">
+        <!-- populated by JS -->
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta__content">
+        <h3>Want a book added?</h3>
+        <p>Send your request and we will queue it for a free download slot.</p>
+        <a class="btn btn--primary" href="mailto:hello@openreads.example">Request a title</a>
+      </div>
+      <div class="cta__note">
+        <p>All downloads are direct links. If you host PDFs locally, drop them into <code>books/</code> and update <code>books.json</code>.</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="auth" id="authModal" aria-hidden="true">
+    <div class="auth__backdrop"></div>
+    <div class="auth__panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="auth__close" id="closeAuth" aria-label="Close">×</button>
+      <div class="auth__tabs">
+        <button class="auth__tab auth__tab--active" data-mode="login">Log in</button>
+        <button class="auth__tab" data-mode="signup">Sign up</button>
+      </div>
+      <form id="authForm" class="auth__form">
+        <h3 id="authTitle">Log in to NovaReads</h3>
+        <label>Email
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <label>Password
+          <input type="password" name="password" placeholder="••••••••" required>
+        </label>
+        <button type="submit" class="btn btn--primary auth__submit">Continue</button>
+        <p class="auth__hint" id="authHint">No account yet? Sign up for free.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <h4>NovaReads</h4>
+      <p>Free, colorful, and fast eBook downloads.</p>
+    </div>
+    <div>
+      <h4>Popular</h4>
+      <ul>
+        <li><a href="#featured">Rich Dad Poor Dad</a></li>
+        <li><a href="#library">Atomic Habits</a></li>
+        <li><a href="#library">The Alchemist</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@openreads.example">Email</a></li>
+        <li><a href="#">Telegram</a></li>
+        <li><a href="#">Discord</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
