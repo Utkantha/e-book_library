@@ -3,10 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-BOOK LIBRARY | NovaReads Downloads</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>NovaReads Downloads</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body id="downloadPage">
@@ -17,25 +14,24 @@
     </div>
     <div class="topbar__actions">
       <a class="link" href="index.html">Home</a>
-      <a class="link" href="#library">Library</a>
+      <a class="link" href="index.html#library">Library</a>
       <button class="btn btn--ghost" id="loginBtn">Log in</button>
       <button class="btn btn--primary" id="signupBtn">Sign up</button>
     </div>
   </nav>
 
   <header class="hero hero--download">
-    <div class="hero__overlay"></div>
     <div class="hero__content">
       <p class="badge">Members unlock downloads</p>
-      <h1>E-BOOK LIBRARY</h1>
-      <p class="subtext">Sign up or log in with email & password to download any title instantly.</p>
+      <h1>Premium Downloads</h1>
+      <p class="subtext">Sign up or log in with email & password to download any title instantly in high quality.</p>
       <div class="hero__actions">
         <button class="btn btn--primary" id="ctaDownloadSignup">Sign up to download</button>
         <button class="btn btn--ghost" id="ctaDownloadLogin">Log in</button>
       </div>
       <form class="search" id="searchForm">
         <input type="text" id="searchInput" placeholder="Search title, author, genre..." aria-label="Search books">
-        <button type="submit" class="btn btn--secondary">Search</button>
+        <button type="submit" class="btn btn--primary" style="padding: 0.6rem 1rem;">Search</button>
       </form>
     </div>
   </header>
@@ -43,23 +39,25 @@
   <main>
     <section id="library" class="section">
       <div class="section__header">
-        <h2>All downloads</h2>
-        <p>Pick a book and log in to get the PDF.</p>
+        <div>
+          <h2>All downloads</h2>
+          <p>Pick a book and log in to get the PDF.</p>
+        </div>
+        <div class="filters">
+          <select id="genreFilter" aria-label="Filter by genre">
+            <option value="all">All genres</option>
+            <option value="finance">Finance</option>
+            <option value="productivity">Productivity</option>
+            <option value="fiction">Fiction</option>
+            <option value="self-help">Self Help</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="history">History</option>
+            <option value="biography">Biography</option>
+          </select>
+          <button class="btn btn--ghost" id="resetFilters" style="padding: 0.7rem 1rem;">Reset</button>
+        </div>
       </div>
-      <div class="filters">
-        <select id="genreFilter">
-          <option value="all">All genres</option>
-          <option value="finance">Finance</option>
-          <option value="productivity">Productivity</option>
-          <option value="fiction">Fiction</option>
-          <option value="self-help">Self help</option>
-          <option value="sci-fi">Sci-Fi</option>
-          <option value="history">History</option>
-          <option value="biography">Biography</option>
-        </select>
-        <button class="btn btn--ghost" id="resetFilters">Reset</button>
-      </div>
-      <div class="grid" id="libraryGrid">
+      <div id="libraryContainer">
         <!-- populated by JS -->
       </div>
     </section>
@@ -81,7 +79,7 @@
         <label>Password
           <input type="password" name="password" placeholder="••••••••" required>
         </label>
-        <button type="submit" class="btn btn--primary auth__submit">Continue</button>
+        <button type="submit" class="btn btn--primary">Continue</button>
         <p class="auth__hint" id="authHint">No account yet? Sign up for free.</p>
       </form>
     </div>
@@ -90,20 +88,20 @@
   <footer class="footer">
     <div>
       <h4>NovaReads</h4>
-      <p>Free, colorful, and fast eBook downloads.</p>
+      <p>Premium, colorful, and lightning-fast eBook downloads.</p>
     </div>
     <div>
       <h4>Popular</h4>
       <ul>
-        <li><a href="#library">Rich Dad Poor Dad</a></li>
-        <li><a href="#library">Atomic Habits</a></li>
-        <li><a href="#library">Dune</a></li>
+        <li><a href="index.html#featured">Rich Dad Poor Dad</a></li>
+        <li><a href="index.html#library">Atomic Habits</a></li>
+        <li><a href="index.html#library">Dune</a></li>
       </ul>
     </div>
     <div>
       <h4>Connect</h4>
       <ul>
-        <li><a href="mailto:hello@openreads.example">Email</a></li>
+        <li><a href="mailto:hello@novareads.example">Email</a></li>
         <li><a href="#">Telegram</a></li>
         <li><a href="#">Discord</a></li>
       </ul>
@@ -117,4 +115,3 @@
   </script>
 </body>
 </html>
-

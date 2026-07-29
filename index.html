@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaReads | E-Book Library</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>NovaReads | Premium E-Book Library</title>
+  <meta name="description" content="A premium, colorful, and fast e-book library. Download or read your favorite books in a stunning glassmorphic interface.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -24,18 +22,20 @@
         <button class="btn btn--primary" id="signupBtn">Sign up</button>
       </div>
     </nav>
-    <div class="hero__overlay"></div>
     <div class="hero__content">
-      <p class="badge">NovaReads • 100% free downloads</p>
-      <h1>E-BOOK LIBRARY</h1>
-      <p class="subtext">Colorful stories, powerful ideas. Sign up or log in to grab every title.</p>
+      <p class="badge">NovaReads • 100% Free Downloads</p>
+      <h1>Unlimited Books.<br>Zero Limits.</h1>
+      <p class="subtext">Dive into colorful stories and powerful ideas. Sign up or log in to grab every title in our premium library.</p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#featured">See featured</a>
+        <a class="btn btn--primary" href="#featured">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          See featured
+        </a>
         <a class="btn btn--ghost" href="#library">Browse library</a>
       </div>
       <form class="search" id="searchForm">
         <input type="text" id="searchInput" placeholder="Search title, author, genre..." aria-label="Search books">
-        <button type="submit" class="btn btn--secondary">Search</button>
+        <button type="submit" class="btn btn--primary" style="padding: 0.6rem 1rem;">Search</button>
       </form>
     </div>
     <div class="hero__stats">
@@ -45,11 +45,11 @@
       </div>
       <div>
         <span class="stat__number">1M+</span>
-        <span class="stat__label">Community downloads</span>
+        <span class="stat__label">Downloads</span>
       </div>
       <div>
         <span class="stat__number">4.9★</span>
-        <span class="stat__label">Reader satisfaction</span>
+        <span class="stat__label">Rating</span>
       </div>
     </div>
   </header>
@@ -57,45 +57,49 @@
   <main>
     <section id="featured" class="section">
       <div class="section__header">
-        <h2>Featured picks</h2>
-        <p>Curated reads to get you started.</p>
+        <div>
+          <h2>Featured picks</h2>
+          <p>Hand-picked reads to get you started on your journey.</p>
+        </div>
       </div>
-      <div class="grid" id="featuredGrid">
+      <div class="bento-grid" id="featuredGrid">
         <!-- populated by JS -->
       </div>
     </section>
 
     <section id="library" class="section">
       <div class="section__header">
-        <h2>Full library</h2>
-        <p>Fresh drops every week. Filter, preview, download.</p>
+        <div>
+          <h2>Explore library</h2>
+          <p>Fresh drops every week. Filter, preview, and download.</p>
+        </div>
+        <div class="filters">
+          <select id="genreFilter" aria-label="Filter by genre">
+            <option value="all">All genres</option>
+            <option value="finance">Finance</option>
+            <option value="productivity">Productivity</option>
+            <option value="fiction">Fiction</option>
+            <option value="self-help">Self Help</option>
+            <option value="sci-fi">Sci-Fi</option>
+            <option value="history">History</option>
+            <option value="biography">Biography</option>
+          </select>
+          <button class="btn btn--ghost" id="resetFilters" style="padding: 0.7rem 1rem;">Reset</button>
+        </div>
       </div>
-      <div class="filters">
-        <select id="genreFilter">
-          <option value="all">All genres</option>
-          <option value="finance">Finance</option>
-          <option value="productivity">Productivity</option>
-          <option value="fiction">Fiction</option>
-          <option value="self-help">Self help</option>
-          <option value="sci-fi">Sci-Fi</option>
-          <option value="history">History</option>
-          <option value="biography">Biography</option>
-        </select>
-        <button class="btn btn--ghost" id="resetFilters">Reset</button>
-      </div>
-      <div class="grid" id="libraryGrid">
-        <!-- populated by JS -->
+      <div id="libraryContainer">
+        <!-- populated by JS with horizontal rows -->
       </div>
     </section>
 
     <section class="cta">
-      <div class="cta__content">
-        <h3>Want a book added?</h3>
-        <p>Send your request and we will queue it for a free download slot.</p>
-        <a class="btn btn--primary" href="mailto:hello@openreads.example">Request a title</a>
+      <div>
+        <h3>Missing a book?</h3>
+        <p>Send your request and we'll add it to our priority queue for a free download slot.</p>
+        <a class="btn btn--primary" href="mailto:hello@novareads.example">Request a title</a>
       </div>
       <div class="cta__note">
-        <p>All downloads are direct links. If you host PDFs locally, drop them into <code>books/</code> and update <code>books.json</code>.</p>
+        <p>All downloads are direct links. If you host PDFs locally, drop them into <code>books/</code> and update <code>books.json</code> or the internal array.</p>
       </div>
     </section>
   </main>
@@ -116,7 +120,7 @@
         <label>Password
           <input type="password" name="password" placeholder="••••••••" required>
         </label>
-        <button type="submit" class="btn btn--primary auth__submit">Continue</button>
+        <button type="submit" class="btn btn--primary">Continue</button>
         <p class="auth__hint" id="authHint">No account yet? Sign up for free.</p>
       </form>
     </div>
@@ -125,7 +129,7 @@
   <footer class="footer">
     <div>
       <h4>NovaReads</h4>
-      <p>Free, colorful, and fast eBook downloads.</p>
+      <p>Premium, colorful, and lightning-fast eBook downloads.</p>
     </div>
     <div>
       <h4>Popular</h4>
@@ -138,7 +142,7 @@
     <div>
       <h4>Connect</h4>
       <ul>
-        <li><a href="mailto:hello@openreads.example">Email</a></li>
+        <li><a href="mailto:hello@novareads.example">Email</a></li>
         <li><a href="#">Telegram</a></li>
         <li><a href="#">Discord</a></li>
       </ul>
@@ -148,4 +152,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
